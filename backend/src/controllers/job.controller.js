@@ -10,7 +10,7 @@ const scrapeJobsController = async (req, res) => {
     if (!keyword) {
       return res.status(400).json({
         success: false,
-        message: "Keyword is required"
+        message: "Keyword is required",
       });
     }
     const jobsInserted = await scrapeAndSaveJobs(keyword, location);
@@ -22,15 +22,15 @@ const scrapeJobsController = async (req, res) => {
       success: true,
       totalJobsSaved: jobsInserted.length,
       excelFile: excelPath
-        ? `https://job-aggregator-platform-lxfb.onrender.com/linkedin_jobs.xlsx`
-        : null
+        ? "https://job-aggregator-platform-lxfb.onrender.com/downloads/linkedin_jobs.xlsx"
+        : null,
     });
   } catch (error) {
     console.error("Controller error:", error.message);
 
     res.status(500).json({
       success: false,
-      message: "Internal server error"
+      message: "Internal server error",
     });
   }
 };
@@ -43,12 +43,12 @@ const getJobsController = async (req, res) => {
     res.status(200).json({
       success: true,
       totalJobsSaved: jobs.length,
-      jobs
+      jobs,
     });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Failed to fetch jobs"
+      message: "Failed to fetch jobs",
     });
   }
 };
