@@ -10,6 +10,7 @@ const app = express();
 app.use(
   cors({
     origin: [
+      "https://job-aggregator-platform-1.onrender.com",
       "http://localhost:5173",   // Vite dev
       "http://127.0.0.1:5173"
     ],

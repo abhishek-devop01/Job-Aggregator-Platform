@@ -22,7 +22,7 @@ const scrapeJobsController = async (req, res) => {
       success: true,
       totalJobsSaved: jobsInserted.length,
       excelFile: excelPath
-        ? `http://localhost:5000/downloads/linkedin_jobs.xlsx`
+        ? `https://job-aggregator-platform-lxfb.onrender.com/linkedin_jobs.xlsx`
         : null
     });
   } catch (error) {
